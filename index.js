@@ -13,6 +13,7 @@ const Test = new mongoose.model('Test', TestSchema);
 
 mongoose.connect('mongodb://159.203.167.38/test', {useNewUrlParser: true})
 .then(() => {
+  try {
     Test.find({}, function(err, docs) {
       console.log('first');
       console.log(docs);
@@ -22,4 +23,7 @@ mongoose.connect('mongodb://159.203.167.38/test', {useNewUrlParser: true})
       console.log('second');
       console.log(docs);
     })
+  } catch(err) {
+    console.log(err);
+  }
 })
